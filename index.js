@@ -2,7 +2,6 @@ const express = require('express');
 const sendMail = require('./mail.js');
 const app = express();
 const path = require('path');
-const PORT = 5000;
 
 require('dotenv').config();
 
@@ -18,10 +17,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
-
 app.post('/email', (req, res) => {
 
     const {name, email, subject, text} = req.body;
@@ -34,5 +29,9 @@ app.post('/email', (req, res) => {
         }
     });
     
+});
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
