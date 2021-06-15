@@ -4,6 +4,8 @@ const app = express();
 const path = require('path');
 const PORT = 5000;
 
+require('dotenv').config();
+
 app.use(express.static(__dirname + '/views'));
 
 // Configuring our data parsing
