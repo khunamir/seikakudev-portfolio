@@ -26,8 +26,6 @@ app.post('/email', (req, res) => {
 
     const {name, email, subject, text} = req.body;
 
-    console.log(name, email, subject, text);
-
     sendMail(name, email, subject, text, function(err, data) {
         if (err) {
             res.status(500).send("internal error");
