@@ -5,6 +5,8 @@ const path = require('path');
 
 require('dotenv').config();
 
+const port = process.env.PORT || 5000;
+
 app.use(express.static(__dirname + '/views'));
 
 // Configuring our data parsing
@@ -31,7 +33,7 @@ app.post('/email', (req, res) => {
     
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Express server listening on port " + process.env.PORT);
+app.listen(port, () => {
+    console.log("Express server listening on port " + port);
 });
 
